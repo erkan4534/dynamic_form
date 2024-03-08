@@ -10,7 +10,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
     return;
   }
 
-  function checkClickOutside(e) {
+  function closeModalOutside(e) {
     if (modalRef.current && modalRef.current == e.target) {
       setIsModalShow(false);
     }
@@ -18,7 +18,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
 
   return ReactDOM.createPortal(
     <div
-      onMouseDown={checkClickOutside}
+      onMouseDown={closeModalOutside}
       ref={modalRef}
       className={`popup ${isModalShow ? "open" : ""}`}
     >
