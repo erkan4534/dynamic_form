@@ -27,6 +27,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
   }
 
   function closeModal() {
+    console.log(34343);
     setIsModalShow(false);
   }
 
@@ -54,7 +55,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
       <div className="popup-content">
         <div className="popup-header">
           <h2>Add New Input</h2>
-          <button className="close-btn" onKeyUp={closeModal}>
+          <button className="close-btn" onClick={closeModal}>
             X
           </button>
         </div>
