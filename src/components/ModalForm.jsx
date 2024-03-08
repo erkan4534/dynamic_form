@@ -16,6 +16,10 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
     }
   }
 
+  function closeModal() {
+    setIsModalShow(false);
+  }
+
   function modalFormSubmit(event) {
     event.preventDefault();
   }
@@ -57,10 +61,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
 
           <div className="button-container">
             <button className="submit-btn">Giriş</button>
-            <button
-              className="bottom-btn"
-              onClick={() => setIsModalShow(false)}
-            >
+            <button className="bottom-btn" onClick={closeModal}>
               Kapat
             </button>
           </div>
