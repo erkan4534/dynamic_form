@@ -59,6 +59,8 @@ const FormInput = () => {
       </form>
       <ModalForm
         isModalShow={isModalShow}
+        inputDataArray={inputDataArray}
+        setInputDataArray={setInputDataArray}
         setIsModalShow={setIsModalShow}
         closeForm={closeForm}
       />

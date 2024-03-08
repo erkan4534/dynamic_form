@@ -1,10 +1,20 @@
 import PropTypes from "prop-types";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import "./ModalForm.css";
 
+const inputData = {
+  id: "",
+  name: "",
+  placeholder: "",
+  label: "",
+  type: "",
+};
+
 const ModalForm = ({ isModalShow, setIsModalShow }) => {
   let modalRef = useRef();
+  const [newInput, setNewInput] = useState(inputData);
+  const { name, placeholder, label, type } = newInput;
 
   if (!isModalShow) {
     return;
@@ -22,7 +32,18 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
 
   function modalFormSubmit(event) {
     event.preventDefault();
+    console.log(newInput);
+    // setNewInput(inputData);
   }
+
+  const handleChange = (name) => {
+    return (event) => {
+      setNewInput({
+        ...newInput,
+        [name]: event.target.value,
+      });
+    };
+  };
 
   return ReactDOM.createPortal(
     <div
@@ -33,7 +54,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
       <div className="popup-content">
         <div className="popup-header">
           <h2>Add New Input</h2>
-          <button className="close-btn" onClick={() => setIsModalShow(false)}>
+          <button className="close-btn" onKeyUp={closeModal}>
             X
           </button>
         </div>
@@ -41,22 +62,42 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
         <form onSubmit={modalFormSubmit}>
           <div className="form-group">
             <label htmlFor="inputName">Name</label>
-            <input type="text" name="inputName" id="inputName" />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="inputType">Type</label>
-            <input type="text" name="inputType" id="inputType" />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="inputLabel">Label</label>
-            <input type="text" name="inputLabel" id="inputLabel" />
+            <input
+              id="inputName"
+              type="text"
+              onChange={handleChange("name")}
+              value={name}
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="inputPlaceHolder">Placeholder</label>
-            <input type="text" name="inputPlaceHolder" id="inputPlaceHolder" />
+            <input
+              id="inputPlaceHolder"
+              type="text"
+              onChange={handleChange("placeholder")}
+              value={placeholder}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="inputLabel">Label</label>
+            <input
+              id="inputLabel"
+              type="text"
+              onChange={handleChange("label")}
+              value={label}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="inputType">Type</label>
+            <input
+              id="inputType"
+              type="text"
+              onChange={handleChange("type")}
+              value={type}
+            />
           </div>
 
           <div className="button-container">
@@ -77,6 +118,8 @@ ModalForm.propTypes = {
   closeForm: PropTypes.func,
   modalShowRef: PropTypes.object,
   setIsModalShow: PropTypes.func,
+  inputDataArray: PropTypes.array,
+  setInputDataArray: PropTypes.func,
 };
 
 export default ModalForm;

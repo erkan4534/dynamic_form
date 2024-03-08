@@ -34,7 +34,7 @@
   border: none;
   cursor: pointer;
   font-weight: bold;
-  background-color: #007bff;
+  background-color: #365dc0;
   color: white;
   border-radius: 4px;
 }
@@ -59,13 +59,13 @@ input {
 .button-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px; /* Butonlar ile form alanı arasında boşluk bırakır */
+  margin-top: 20px;
 }
 
 .submit-btn,
 .bottom-btn {
-  padding: 10px 20px; /* Buton boyutlarını ayarlar */
-  background-color: #007bff;
+  padding: 10px 20px;
+  background-color: #365dc0;
   color: white;
   border: none;
   border-radius: 5px;
@@ -75,5 +75,5 @@ input {
 
 .submit-btn:hover,
 .bottom-btn:hover {
-  background-color: #0056b3;
+  background-color: #365dc0;
 }
