@@ -9,10 +9,17 @@ const FormInputItem = ({
   type,
   inputDataArray,
   setInputDataArray,
+  setIsModalShow,
 }) => {
   function deleteItem(itemId) {
     const newInputDataArray = inputDataArray.filter(({ id }) => id !== itemId);
     setInputDataArray(newInputDataArray);
+  }
+
+  function updateItem(itemId) {
+    const inputData = inputDataArray.find(({ id }) => id !== itemId);
+    setIsModalShow(true);
+    console.log(inputData);
   }
 
   return (
@@ -40,7 +47,7 @@ const FormInputItem = ({
         <button
           key={id}
           type="button"
-          onClick={() => deleteItem(id)}
+          onClick={() => updateItem(id)}
           className="btn-update ml-5 bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-25"
         >
           Update
@@ -58,6 +65,7 @@ FormInputItem.propTypes = {
   type: PropTypes.string,
   inputDataArray: PropTypes.array,
   setInputDataArray: PropTypes.func,
+  setIsModalShow: PropTypes.func,
 };
 
 export default FormInputItem;

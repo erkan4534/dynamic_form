@@ -29,6 +29,7 @@ const FormInput = () => {
             {...input}
             setInputDataArray={setInputDataArray}
             inputDataArray={inputDataArray}
+            setIsModalShow={setIsModalShow}
           />
         ))}
         <div className="w-60 mt-2 flex justify-between">
