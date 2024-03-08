@@ -10,7 +10,6 @@ const FormInput = () => {
 
   const formInputValue = (event) => {
     event.preventDefault();
-    setIsModalShow(true);
   };
 
   function closeForm() {
