@@ -10,6 +10,8 @@ const FormInputItem = ({
   inputDataArray,
   setInputDataArray,
   setIsModalShow,
+  inputData,
+  setInputData,
 }) => {
   function deleteItem(itemId) {
     const newInputDataArray = inputDataArray.filter(({ id }) => id !== itemId);
@@ -17,9 +19,9 @@ const FormInputItem = ({
   }
 
   function updateItem(itemId) {
-    const inputData = inputDataArray.find(({ id }) => id !== itemId);
+    const inputData = inputDataArray.find(({ id }) => id === itemId);
+    setInputData(inputData);
     setIsModalShow(true);
-    console.log(inputData);
   }
 
   return (
@@ -36,7 +38,6 @@ const FormInputItem = ({
         />
 
         <button
-          key={id}
           type="button"
           onClick={() => deleteItem(id)}
           className="btn-delete ml-5 bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-25"
@@ -45,7 +46,6 @@ const FormInputItem = ({
         </button>
 
         <button
-          key={id}
           type="button"
           onClick={() => updateItem(id)}
           className="btn-update ml-5 bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-25"
@@ -66,6 +66,8 @@ FormInputItem.propTypes = {
   inputDataArray: PropTypes.array,
   setInputDataArray: PropTypes.func,
   setIsModalShow: PropTypes.func,
+  inputData: PropTypes.object,
+  setInputData: PropTypes.func,
 };
 
 export default FormInputItem;

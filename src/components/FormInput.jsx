@@ -4,9 +4,18 @@ import FormInputItem from "./FormInputItem";
 import ModalForm from "./ModalForm";
 import "./formInput.css";
 
+const defaultInputData = {
+  id: "",
+  label: "",
+  name: "",
+  placeholder: "",
+  type: "",
+};
+
 const FormInput = () => {
   const [inputDataArray, setInputDataArray] = useState(inputsData);
   const [isModalShow, setIsModalShow] = useState(false);
+  const [inputData, setInputData] = useState(defaultInputData);
 
   const formInputValue = (event) => {
     event.preventDefault();
@@ -30,6 +39,8 @@ const FormInput = () => {
             setInputDataArray={setInputDataArray}
             inputDataArray={inputDataArray}
             setIsModalShow={setIsModalShow}
+            inputData={inputData}
+            setInputData={setInputData}
           />
         ))}
         <div className="w-60 mt-2 flex justify-between">
@@ -44,7 +55,7 @@ const FormInput = () => {
             type="button"
             className="btn_add bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-50"
           >
-            Add Input
+            Add
           </button>
         </div>
       </form>
@@ -54,6 +65,8 @@ const FormInput = () => {
         setInputDataArray={setInputDataArray}
         setIsModalShow={setIsModalShow}
         closeForm={closeForm}
+        inputData={inputData}
+        setInputData={setInputData}
       />
     </div>
   );

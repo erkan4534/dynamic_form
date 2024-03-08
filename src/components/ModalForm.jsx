@@ -16,9 +16,10 @@ const ModalForm = ({
   setIsModalShow,
   inputDataArray,
   setInputDataArray,
+  inputData,
+  setInputData,
 }) => {
   let modalRef = useRef();
-  const [inputData, setInputData] = useState(defaultInputData);
 
   useEffect(() => {
     setInputData(defaultInputData);
@@ -70,7 +71,7 @@ const ModalForm = ({
     >
       <div className="popup-content">
         <div className="popup-header">
-          <h2>Add New Input</h2>
+          <h2>New Input</h2>
           <button className="close-btn" onClick={closeModal}>
             X
           </button>
@@ -137,6 +138,8 @@ ModalForm.propTypes = {
   setIsModalShow: PropTypes.func,
   inputDataArray: PropTypes.array,
   setInputDataArray: PropTypes.func,
+  inputData: PropTypes.object,
+  setInputData: PropTypes.func,
 };
 
 export default ModalForm;
