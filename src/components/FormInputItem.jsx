@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./formInputItem.css";
 
 const FormInputItem = ({
   id,
@@ -15,12 +16,12 @@ const FormInputItem = ({
   }
 
   return (
-    <div className="flex flex-col gap-1 formInput">
-      <label className="font-semibold text-lg">{label}:</label>
+    <div className="flex flex-col formInput">
+      <label className="font-semibold text-[13px]">{label}</label>
 
       <div>
         <input
-          className="leading-8 border-black rounded-sm placeholder:translate-x-1 w-80 my-3"
+          className="leading-6 border-black rounded-sm placeholder:translate-x-1 w-60"
           id={id}
           name={name}
           type={type}
@@ -31,9 +32,18 @@ const FormInputItem = ({
           key={id}
           type="button"
           onClick={() => deleteItem(id)}
-          className="ml-5 bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-50"
+          className="btn-delete ml-5 bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-25"
         >
           Delete
+        </button>
+
+        <button
+          key={id}
+          type="button"
+          onClick={() => deleteItem(id)}
+          className="btn-update ml-5 bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-25"
+        >
+          Update
         </button>
       </div>
     </div>

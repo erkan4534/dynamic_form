@@ -3,14 +3,7 @@ import { inputsData } from "../data/InputsData";
 import FormInputItem from "./FormInputItem";
 import ModalForm from "./ModalForm";
 import "./ModalForm.css";
-
-const inputData = {
-  id: "",
-  name: "",
-  placeholder: "",
-  label: "",
-  type: "",
-};
+import "./formInput.css";
 
 const FormInput = () => {
   const [inputDataArray, setInputDataArray] = useState(inputsData);
@@ -40,17 +33,17 @@ const FormInput = () => {
             inputDataArray={inputDataArray}
           />
         ))}
-        <div className="flex justify-between mt-2">
+        <div className="w-60 mt-2 flex justify-between">
           <button
             type="submit"
-            className="bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-50"
+            className="btn-submit bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-50"
           >
             Submit
           </button>
           <button
             onClick={openForm}
             type="button"
-            className="bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-50"
+            className="btn_add bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-50"
           >
             Add Input
           </button>

@@ -49,6 +49,8 @@ const ModalForm = ({
     setInputDataArray((prevState) => {
       return [...prevState, newInputData];
     });
+
+    setIsModalShow(false);
   }
 
   const handleChange = (name) => {
@@ -116,9 +118,9 @@ const ModalForm = ({
           </div>
 
           <div className="button-container">
-            <button className="submit-btn">Giriş</button>
+            <button className="submit-btn">Save</button>
             <button className="bottom-btn" onClick={closeModal}>
-              Kapat
+              Close
             </button>
           </div>
         </form>
