@@ -2,7 +2,6 @@ import { useState } from "react";
 import { inputsData } from "../data/InputsData";
 import FormInputItem from "./FormInputItem";
 import ModalForm from "./ModalForm";
-import "./ModalForm.css";
 import "./formInput.css";
 
 const FormInput = () => {
