@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { inputsData } from "../data/InputsData";
 import FormInputItem from "./FormInputItem";
 import ModalForm from "./ModalForm";
@@ -20,7 +20,6 @@ const FormInput = () => {
     event.preventDefault();
     const newInputsData = [...inputDataArray, inputData];
     setInputDataArray[newInputsData];
-    console.info("formInputValue is working");
     setIsModalShow(true);
   };
 
