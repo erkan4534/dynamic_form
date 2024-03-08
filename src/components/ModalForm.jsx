@@ -16,6 +16,10 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
     }
   }
 
+  function modalFormSubmit(event) {
+    event.preventDefault();
+  }
+
   return ReactDOM.createPortal(
     <div
       onMouseDown={closeModalOutside}
@@ -30,7 +34,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
           </button>
         </div>
 
-        <form>
+        <form onSubmit={modalFormSubmit}>
           <div className="form-group">
             <label htmlFor="inputName">Name</label>
             <input type="text" name="inputName" id="inputName" />
