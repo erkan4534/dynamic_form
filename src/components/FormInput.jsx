@@ -18,8 +18,6 @@ const FormInput = () => {
 
   const formInputValue = (event) => {
     event.preventDefault();
-    const newInputsData = [...inputDataArray, inputData];
-    setInputDataArray[newInputsData];
     setIsModalShow(true);
   };
 

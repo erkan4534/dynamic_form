@@ -3,18 +3,26 @@ import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import "./ModalForm.css";
 
-const inputData = {
+const defaultInputData = {
   id: "",
+  label: "",
   name: "",
   placeholder: "",
-  label: "",
   type: "",
 };
 
-const ModalForm = ({ isModalShow, setIsModalShow }) => {
+const ModalForm = ({
+  isModalShow,
+  setIsModalShow,
+  inputDataArray,
+  setInputDataArray,
+}) => {
   let modalRef = useRef();
-  const [newInput, setNewInput] = useState(inputData);
-  const { name, placeholder, label, type } = newInput;
+  const [inputData, setInputData] = useState(defaultInputData);
+
+  useEffect(() => {
+    setInputData(defaultInputData);
+  }, [inputDataArray]);
 
   if (!isModalShow) {
     return;
@@ -27,20 +35,26 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
   }
 
   function closeModal() {
-    console.log(34343);
     setIsModalShow(false);
   }
 
-  function modalFormSubmit(event) {
-    event.preventDefault();
-    console.log(newInput);
-    // setNewInput(inputData);
+  function modalFormSubmit(e) {
+    e.preventDefault();
+
+    const newInputData = {
+      ...inputData,
+      id: inputDataArray.length + 1,
+    };
+
+    setInputDataArray((prevState) => {
+      return [...prevState, newInputData];
+    });
   }
 
   const handleChange = (name) => {
     return (event) => {
-      setNewInput({
-        ...newInput,
+      setInputData({
+        ...inputData,
         [name]: event.target.value,
       });
     };
@@ -67,7 +81,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
               id="inputName"
               type="text"
               onChange={handleChange("name")}
-              value={name}
+              value={inputData.name}
             />
           </div>
 
@@ -77,7 +91,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
               id="inputPlaceHolder"
               type="text"
               onChange={handleChange("placeholder")}
-              value={placeholder}
+              value={inputData.placeholder}
             />
           </div>
 
@@ -87,7 +101,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
               id="inputLabel"
               type="text"
               onChange={handleChange("label")}
-              value={label}
+              value={inputData.label}
             />
           </div>
 
@@ -97,7 +111,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
               id="inputType"
               type="text"
               onChange={handleChange("type")}
-              value={type}
+              value={inputData.type}
             />
           </div>
 
@@ -110,7 +124,7 @@ const ModalForm = ({ isModalShow, setIsModalShow }) => {
         </form>
       </div>
     </div>,
-    document.body
+    document.getElementById("modal")
   );
 };
 
