@@ -37,7 +37,7 @@ const FormInput = () => {
             type="submit"
             className="btn-submit bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-50"
           >
-            Submit
+            Save
           </button>
           <button
             onClick={openForm}
