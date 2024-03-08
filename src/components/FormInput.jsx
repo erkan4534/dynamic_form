@@ -37,6 +37,7 @@ const FormInput = () => {
             key={input.id}
             {...input}
             setInputDataArray={setInputDataArray}
+            inputDataArray={inputDataArray}
           />
         ))}
         <div className="flex justify-between mt-2">
