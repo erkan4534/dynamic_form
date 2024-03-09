@@ -78,3 +78,7 @@ input {
 .bottom-btn:hover {
   background-color: #365dc0;
 }
+
+.form-group-inline {
+  display: inline-block;
+}

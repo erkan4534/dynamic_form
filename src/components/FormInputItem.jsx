@@ -32,7 +32,6 @@ const FormInputItem = ({
   function handleChange(event, itemId) {
     const updatedInputDataArray = inputDataArray.map((item) => {
       if (item.id === itemId) {
-        // Eğer öğe bulunursa, değerini güncelle
         return { ...item, value: event.target.value };
       }
 
@@ -49,7 +48,7 @@ const FormInputItem = ({
       <div>
         <input
           className={
-            value.trim() == "" && isErrorMessage
+            value && value.trim() == "" && isErrorMessage
               ? "border-red-500 leading-6  rounded-sm placeholder:translate-x-1 w-60"
               : "leading-6 border-black rounded-sm placeholder:translate-x-1 w-60"
           }

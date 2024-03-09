@@ -3,6 +3,7 @@ import { inputsData } from "../data/InputsData";
 import FormInputItem from "./FormInputItem";
 import ModalForm from "./ModalForm";
 import "./formInput.css";
+import FormInputModal from "./FormInputModal";
 
 const defaultInputData = {
   id: "",
@@ -18,6 +19,7 @@ const FormInput = () => {
   const [inputData, setInputData] = useState(defaultInputData);
   const [isUpdateData, setIsUpdateData] = useState(false);
   const [isErrorMessage, setIsErrorMessage] = useState(false);
+  const [isInputModalShow, setIsInputModalShow] = useState(false);
 
   function closeForm() {
     setIsModalShow(false);
@@ -31,12 +33,14 @@ const FormInput = () => {
   function saveForm() {
     const isFormValid = Object.values(
       inputDataArray.map((input) => input.value)
-    ).every((value) => value.trim() !== "");
+    ).every((value) => value && value.trim() !== "");
 
     if (!isFormValid) {
       setIsErrorMessage(true);
       return;
     }
+
+    setIsInputModalShow(true);
   }
 
   return (
@@ -89,6 +93,14 @@ const FormInput = () => {
         setIsUpdateData={setIsUpdateData}
         isUpdateData={isUpdateData}
         isErrorMessage={isErrorMessage}
+        setIsErrorMessage={setIsErrorMessage}
+      />
+
+      <FormInputModal
+        isInputModalShow={isInputModalShow}
+        setIsInputModalShow={setIsInputModalShow}
+        setInputDataArray={setInputDataArray}
+        inputDataArray={inputDataArray}
         setIsErrorMessage={setIsErrorMessage}
       />
     </div>
