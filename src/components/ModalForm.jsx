@@ -126,6 +126,11 @@ const ModalForm = ({
               type="text"
               onChange={handleChange("name")}
               value={inputData.name}
+              className={
+                inputData.name.trim() == "" && isErrorMessage
+                  ? "border-red-500"
+                  : ""
+              }
             />
           </div>
 
@@ -136,6 +141,11 @@ const ModalForm = ({
               type="text"
               onChange={handleChange("placeholder")}
               value={inputData.placeholder}
+              className={
+                inputData.placeholder.trim() == "" && isErrorMessage
+                  ? "border-red-500"
+                  : ""
+              }
             />
           </div>
 
@@ -146,6 +156,11 @@ const ModalForm = ({
               type="text"
               onChange={handleChange("label")}
               value={inputData.label}
+              className={
+                inputData.label.trim() == "" && isErrorMessage
+                  ? "border-red-500"
+                  : ""
+              }
             />
           </div>
 
@@ -156,6 +171,11 @@ const ModalForm = ({
               type="text"
               onChange={handleChange("type")}
               value={inputData.type}
+              className={
+                inputData.type.trim() == "" && isErrorMessage
+                  ? "border-red-500"
+                  : ""
+              }
             />
           </div>
 
