@@ -17,16 +17,16 @@ export const inputsData = [
   {
     id: 3,
     name: "password",
+    placeholder: "Enter your Password",
     label: "password",
     type: "password",
-    placeholder: "Enter your Password",
   },
 
   {
     id: 4,
     name: "confirmPassword",
+    placeholder: "Enter your Confirm Password",
     label: "Confirm Password",
     type: "password",
-    placeholder: "Enter your Confirm Password",
   },
 ];
