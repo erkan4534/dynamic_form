@@ -10,8 +10,8 @@ const FormInputItem = ({
   inputDataArray,
   setInputDataArray,
   setIsModalShow,
-  inputData,
   setInputData,
+  setIsUpdateData,
 }) => {
   function deleteItem(itemId) {
     const newInputDataArray = inputDataArray.filter(({ id }) => id !== itemId);
@@ -21,6 +21,7 @@ const FormInputItem = ({
   function updateItem(itemId) {
     const inputData = inputDataArray.find(({ id }) => id === itemId);
     setInputData(inputData);
+    setIsUpdateData(true);
     setIsModalShow(true);
   }
 
@@ -68,6 +69,7 @@ FormInputItem.propTypes = {
   setIsModalShow: PropTypes.func,
   inputData: PropTypes.object,
   setInputData: PropTypes.func,
+  setIsUpdateData: PropTypes.func,
 };
 
 export default FormInputItem;

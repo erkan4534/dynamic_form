@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import "./ModalForm.css";
 
@@ -18,12 +18,16 @@ const ModalForm = ({
   setInputDataArray,
   inputData,
   setInputData,
+  isUpdateData,
+  setIsUpdateData,
 }) => {
   let modalRef = useRef();
 
   useEffect(() => {
-    setInputData(defaultInputData);
-  }, [inputDataArray]);
+    if (!isUpdateData) {
+      setInputData(defaultInputData);
+    }
+  }, [inputDataArray, isUpdateData]);
 
   if (!isModalShow) {
     return;
@@ -42,14 +46,33 @@ const ModalForm = ({
   function modalFormSubmit(e) {
     e.preventDefault();
 
-    const newInputData = {
-      ...inputData,
-      id: inputDataArray.length + 1,
-    };
+    if (!isUpdateData) {
+      const newInputData = {
+        ...inputData,
+        id: inputDataArray.length + 1,
+      };
 
-    setInputDataArray((prevState) => {
-      return [...prevState, newInputData];
-    });
+      setInputDataArray((prevState) => {
+        return [...prevState, newInputData];
+      });
+    } else {
+      const updatedInputDataArray = inputDataArray.map((item) => {
+        if (item.id === inputData.id) {
+          return inputData;
+        } else {
+          return item;
+        }
+      });
+
+      setInputDataArray(updatedInputDataArray);
+
+      setInputDataArray((data) => {
+        console.log(data);
+        return data;
+      });
+
+      setIsUpdateData(false);
+    }
 
     setIsModalShow(false);
   }
@@ -140,6 +163,8 @@ ModalForm.propTypes = {
   setInputDataArray: PropTypes.func,
   inputData: PropTypes.object,
   setInputData: PropTypes.func,
+  setIsUpdateData: PropTypes.func,
+  isUpdateData: PropTypes.bool,
 };
 
 export default ModalForm;
