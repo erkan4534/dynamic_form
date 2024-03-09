@@ -19,10 +19,6 @@ const FormInput = () => {
   const [isUpdateData, setIsUpdateData] = useState(false);
   const [isErrorMessage, setIsErrorMessage] = useState(false);
 
-  const formInputValue = (event) => {
-    event.preventDefault();
-  };
-
   function closeForm() {
     setIsModalShow(false);
   }
