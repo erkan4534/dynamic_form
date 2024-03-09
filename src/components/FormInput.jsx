@@ -101,8 +101,6 @@ const FormInput = () => {
         setInputData={setInputData}
         setIsUpdateData={setIsUpdateData}
         isUpdateData={isUpdateData}
-        isErrorMessage={isErrorMessage}
-        setIsErrorMessage={setIsErrorMessage}
       />
 
       <FormInputModal

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import "./ModalForm.css";
 
@@ -20,10 +20,9 @@ const ModalForm = ({
   setInputData,
   isUpdateData,
   setIsUpdateData,
-  isErrorMessage,
-  setIsErrorMessage,
 }) => {
   let modalRef = useRef();
+  const [isErrorMessage, setIsErrorMessage] = useState(false);
 
   useEffect(() => {
     if (!isUpdateData) {
@@ -208,8 +207,6 @@ ModalForm.propTypes = {
   setInputData: PropTypes.func,
   setIsUpdateData: PropTypes.func,
   isUpdateData: PropTypes.bool,
-  isErrorMessage: PropTypes.bool,
-  setIsErrorMessage: PropTypes.func,
 };
 
 export default ModalForm;
