@@ -20,6 +20,8 @@ const ModalForm = ({
   setInputData,
   isUpdateData,
   setIsUpdateData,
+  isErrorMessage,
+  setIsErrorMessage,
 }) => {
   let modalRef = useRef();
 
@@ -45,6 +47,17 @@ const ModalForm = ({
 
   function modalFormSubmit(e) {
     e.preventDefault();
+
+    const { id, ...inputDataWithoutId } = inputData;
+
+    const isFormValid = Object.values(inputDataWithoutId).every(
+      (value) => value.trim() !== ""
+    );
+
+    if (!isFormValid) {
+      setIsErrorMessage(true);
+      return;
+    }
 
     if (!isUpdateData) {
       const newInputData = {
@@ -98,6 +111,12 @@ const ModalForm = ({
             X
           </button>
         </div>
+
+        {isErrorMessage && (
+          <b className="text-sm text-[11px] text-red-500">
+            Tüm alanlar dolu ve boş karakter içermemelidir.
+          </b>
+        )}
 
         <form onSubmit={modalFormSubmit}>
           <div className="form-group">
@@ -164,6 +183,8 @@ ModalForm.propTypes = {
   setInputData: PropTypes.func,
   setIsUpdateData: PropTypes.func,
   isUpdateData: PropTypes.bool,
+  isErrorMessage: PropTypes.bool,
+  setIsErrorMessage: PropTypes.func,
 };
 
 export default ModalForm;

@@ -17,6 +17,7 @@ const FormInput = () => {
   const [isModalShow, setIsModalShow] = useState(false);
   const [inputData, setInputData] = useState(defaultInputData);
   const [isUpdateData, setIsUpdateData] = useState(false);
+  const [isErrorMessage, setIsErrorMessage] = useState(false);
 
   const formInputValue = (event) => {
     event.preventDefault();
@@ -28,6 +29,7 @@ const FormInput = () => {
 
   function openForm() {
     setIsModalShow(true);
+    setIsErrorMessage(false);
   }
 
   return (
@@ -43,6 +45,7 @@ const FormInput = () => {
             inputData={inputData}
             setInputData={setInputData}
             setIsUpdateData={setIsUpdateData}
+            setIsErrorMessage={setIsErrorMessage}
           />
         ))}
         <div className="w-60 mt-2 flex justify-between">
@@ -71,6 +74,8 @@ const FormInput = () => {
         setInputData={setInputData}
         setIsUpdateData={setIsUpdateData}
         isUpdateData={isUpdateData}
+        isErrorMessage={isErrorMessage}
+        setIsErrorMessage={setIsErrorMessage}
       />
     </div>
   );

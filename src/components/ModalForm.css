@@ -13,6 +13,7 @@
 .popup-content {
   background-color: white;
   padding: 20px;
+  width: 300px;
   border-radius: 5px;
   position: relative;
 }
