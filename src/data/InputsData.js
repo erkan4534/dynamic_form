@@ -5,6 +5,7 @@ export const inputsData = [
     placeholder: "Enter your username",
     label: "Username",
     type: "text",
+    value: "",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const inputsData = [
     placeholder: "Enter your email",
     label: "Email",
     type: "email",
+    value: "",
   },
 
   {
@@ -20,6 +22,7 @@ export const inputsData = [
     placeholder: "Enter your Password",
     label: "password",
     type: "password",
+    value: "",
   },
 
   {
@@ -28,5 +31,6 @@ export const inputsData = [
     placeholder: "Enter your Confirm Password",
     label: "Confirm Password",
     type: "password",
+    value: "",
   },
 ];

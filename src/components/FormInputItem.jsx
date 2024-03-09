@@ -7,6 +7,7 @@ const FormInputItem = ({
   placeholder,
   label,
   type,
+  value,
   inputDataArray,
   setInputDataArray,
   setIsModalShow,
@@ -28,17 +29,36 @@ const FormInputItem = ({
     setIsErrorMessage(false);
   }
 
+  function handleChange(event, itemId) {
+    const updatedInputDataArray = inputDataArray.map((item) => {
+      if (item.id === itemId) {
+        // Eğer öğe bulunursa, değerini güncelle
+        return { ...item, value: event.target.value };
+      }
+
+      return item;
+    });
+
+    setInputDataArray(updatedInputDataArray);
+  }
+
   return (
     <div className="flex flex-col formInput">
       <label className="font-semibold text-[13px]">{label}</label>
 
       <div>
         <input
-          className="leading-6 border-black rounded-sm placeholder:translate-x-1 w-60"
+          className={
+            value.trim() == "" && isErrorMessage
+              ? "border-red-500 leading-6  rounded-sm placeholder:translate-x-1 w-60"
+              : "leading-6 border-black rounded-sm placeholder:translate-x-1 w-60"
+          }
           id={id}
           name={name}
           type={type}
           placeholder={placeholder}
+          onChange={(e) => handleChange(e, id)}
+          value={value}
         />
 
         <button
@@ -67,6 +87,7 @@ FormInputItem.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.string,
+  value: PropTypes.string,
   inputDataArray: PropTypes.array,
   setInputDataArray: PropTypes.func,
   setIsModalShow: PropTypes.func,

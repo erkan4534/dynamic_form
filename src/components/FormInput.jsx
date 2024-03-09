@@ -33,10 +33,9 @@ const FormInput = () => {
   }
 
   function saveForm() {
-    const { id, ...inputDataWithoutId } = inputData;
-    const isFormValid = Object.values(inputDataWithoutId).every(
-      (value) => value.trim() !== ""
-    );
+    const isFormValid = Object.values(
+      inputDataArray.map((input) => input.value)
+    ).every((value) => value.trim() !== "");
 
     if (!isFormValid) {
       setIsErrorMessage(true);
