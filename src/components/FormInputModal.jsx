@@ -9,6 +9,7 @@ const FormInputModal = ({
   inputDataArray,
   setInputDataArray,
   setIsErrorMessage,
+  setIsSuccessMessage,
 }) => {
   let modalRef = useRef();
 
@@ -36,6 +37,7 @@ const FormInputModal = ({
     setInputDataArray(updatedInputDataArray);
     setIsErrorMessage(false);
     setIsInputModalShow(false);
+    setIsSuccessMessage(true);
   }
 
   return ReactDOM.createPortal(
@@ -77,6 +79,7 @@ FormInputModal.propTypes = {
   inputDataArray: PropTypes.array,
   setInputDataArray: PropTypes.func,
   setIsErrorMessage: PropTypes.func,
+  setIsSuccessMessage: PropTypes.func,
 };
 
 export default FormInputModal;

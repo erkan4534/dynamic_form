@@ -20,6 +20,7 @@ const FormInput = () => {
   const [isUpdateData, setIsUpdateData] = useState(false);
   const [isErrorMessage, setIsErrorMessage] = useState(false);
   const [isInputModalShow, setIsInputModalShow] = useState(false);
+  const [isSuccessMessage, setIsSuccessMessage] = useState(false);
 
   function closeForm() {
     setIsModalShow(false);
@@ -41,6 +42,7 @@ const FormInput = () => {
     }
 
     setIsInputModalShow(true);
+    setIsSuccessMessage(false);
   }
 
   return (
@@ -51,6 +53,13 @@ const FormInput = () => {
             Tüm alanlar dolu ve boş karakter içermemelidir.
           </b>
         )}
+
+        {isSuccessMessage && (
+          <b className="text-sm text-[11px] text-red-500">
+            Başarılı bir şekilde kaydedildi.
+          </b>
+        )}
+
         {inputDataArray.map((input) => (
           <FormInputItem
             key={input.id}
@@ -102,6 +111,7 @@ const FormInput = () => {
         setInputDataArray={setInputDataArray}
         inputDataArray={inputDataArray}
         setIsErrorMessage={setIsErrorMessage}
+        setIsSuccessMessage={setIsSuccessMessage}
       />
     </div>
   );
