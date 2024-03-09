@@ -65,7 +65,6 @@ const ModalForm = ({
       });
 
       setInputDataArray(updatedInputDataArray);
-
       setInputDataArray((data) => {
         console.log(data);
         return data;
