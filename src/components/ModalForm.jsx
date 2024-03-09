@@ -79,7 +79,6 @@ const ModalForm = ({
 
       setInputDataArray(updatedInputDataArray);
       setInputDataArray((data) => {
-        console.log(data);
         return data;
       });
 
@@ -166,17 +165,23 @@ const ModalForm = ({
 
           <div className="form-group">
             <label htmlFor="inputType">Type</label>
+
             <input
-              id="inputType"
-              type="text"
+              placeholder="Select Type"
               onChange={handleChange("type")}
-              value={inputData.type}
+              list="inputType"
               className={
                 inputData.type.trim() == "" && isErrorMessage
                   ? "border-red-500"
                   : ""
               }
+              value={inputData.type}
             />
+            <datalist id="inputType">
+              <option>text</option>
+              <option>password</option>
+              <option>email</option>
+            </datalist>
           </div>
 
           <div className="button-container">
