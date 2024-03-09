@@ -19,6 +19,7 @@ const FormInputItem = ({
   function deleteItem(itemId) {
     const newInputDataArray = inputDataArray.filter(({ id }) => id !== itemId);
     setInputDataArray(newInputDataArray);
+    setIsErrorMessage(false);
   }
 
   function updateItem(itemId) {
