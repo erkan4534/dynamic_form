@@ -61,8 +61,17 @@ const FormInputModal = ({
           ))}
 
           <div className="button-container">
-            <button className="submit-btn">Save</button>
-            <button className="bottom-btn" onClick={closeModal}>
+            <button
+              className="submit-btn bg-[#365DC0] hover:bg-blue-700
+               text-white font-bold py-1 px-2 rounded w-12"
+            >
+              Save
+            </button>
+            <button
+              className="bottom-btn bg-[#365DC0] hover:bg-blue-700 
+              text-white font-bold py-1 px-2 rounded w-12"
+              onClick={closeModal}
+            >
               Close
             </button>
           </div>

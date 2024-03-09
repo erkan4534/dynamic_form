@@ -78,14 +78,14 @@ const FormInput = () => {
           <button
             type="button"
             onClick={saveForm}
-            className="btn-submit bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-50"
+            className="btn-submit bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-12"
           >
             Save
           </button>
           <button
             onClick={openForm}
             type="button"
-            className="btn_add bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-50"
+            className="btn_add bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-12"
           >
             Add
           </button>
