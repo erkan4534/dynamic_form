@@ -42,6 +42,7 @@ const ModalForm = ({
 
   function closeModal() {
     setIsModalShow(false);
+    setIsErrorMessage(false);
   }
 
   function modalFormSubmit(e) {
@@ -111,14 +112,16 @@ const ModalForm = ({
         </div>
 
         {isErrorMessage && (
-          <b className="text-sm text-[11px] text-red-500">
+          <b className="text-sm text-[10px] text-red-500">
             Tüm alanlar dolu ve boş karakter içermemelidir.
           </b>
         )}
 
         <form onSubmit={modalFormSubmit}>
           <div className="form-group">
-            <label htmlFor="inputName">Name</label>
+            <label htmlFor="inputName" className="text-[11px] font-bold">
+              Name
+            </label>
             <input
               id="inputName"
               type="text"
@@ -133,7 +136,9 @@ const ModalForm = ({
           </div>
 
           <div className="form-group">
-            <label htmlFor="inputPlaceHolder">Placeholder</label>
+            <label htmlFor="inputPlaceHolder" className="text-[11px] font-bold">
+              Placeholder
+            </label>
             <input
               id="inputPlaceHolder"
               type="text"
@@ -148,7 +153,9 @@ const ModalForm = ({
           </div>
 
           <div className="form-group">
-            <label htmlFor="inputLabel">Label</label>
+            <label htmlFor="inputLabel" className="text-[11px] font-bold">
+              Label
+            </label>
             <input
               id="inputLabel"
               type="text"
@@ -163,7 +170,9 @@ const ModalForm = ({
           </div>
 
           <div className="form-group">
-            <label htmlFor="inputType">Type</label>
+            <label htmlFor="inputType" className="text-[11px] font-bold">
+              Type
+            </label>
 
             <input
               placeholder="Select Type"
