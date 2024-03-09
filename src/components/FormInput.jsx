@@ -32,9 +32,26 @@ const FormInput = () => {
     setIsErrorMessage(false);
   }
 
+  function saveForm() {
+    const { id, ...inputDataWithoutId } = inputData;
+    const isFormValid = Object.values(inputDataWithoutId).every(
+      (value) => value.trim() !== ""
+    );
+
+    if (!isFormValid) {
+      setIsErrorMessage(true);
+      return;
+    }
+  }
+
   return (
     <div>
-      <form onSubmit={formInputValue}>
+      <form>
+        {isErrorMessage && (
+          <b className="text-sm text-[11px] text-red-500">
+            Tüm alanlar dolu ve boş karakter içermemelidir.
+          </b>
+        )}
         {inputDataArray.map((input) => (
           <FormInputItem
             key={input.id}
@@ -46,11 +63,13 @@ const FormInput = () => {
             setInputData={setInputData}
             setIsUpdateData={setIsUpdateData}
             setIsErrorMessage={setIsErrorMessage}
+            isErrorMessage={isErrorMessage}
           />
         ))}
         <div className="w-60 mt-2 flex justify-between">
           <button
-            type="submit"
+            type="button"
+            onClick={saveForm}
             className="btn-submit bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-50"
           >
             Save

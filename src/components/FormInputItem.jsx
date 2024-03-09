@@ -13,6 +13,7 @@ const FormInputItem = ({
   setInputData,
   setIsUpdateData,
   setIsErrorMessage,
+  isErrorMessage,
 }) => {
   function deleteItem(itemId) {
     const newInputDataArray = inputDataArray.filter(({ id }) => id !== itemId);
@@ -73,6 +74,7 @@ FormInputItem.propTypes = {
   setInputData: PropTypes.func,
   setIsUpdateData: PropTypes.func,
   setIsErrorMessage: PropTypes.func,
+  isErrorMessage: PropTypes.bool,
 };
 
 export default FormInputItem;
