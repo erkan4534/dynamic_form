@@ -128,7 +128,7 @@ const ModalForm = ({
               className={
                 inputData.name.trim() == "" && isErrorMessage
                   ? "border-red-500"
-                  : ""
+                  : "pl-2"
               }
             />
           </div>
@@ -143,7 +143,7 @@ const ModalForm = ({
               className={
                 inputData.placeholder.trim() == "" && isErrorMessage
                   ? "border-red-500"
-                  : ""
+                  : "pl-2"
               }
             />
           </div>
@@ -158,7 +158,7 @@ const ModalForm = ({
               className={
                 inputData.label.trim() == "" && isErrorMessage
                   ? "border-red-500"
-                  : ""
+                  : "pl-2"
               }
             />
           </div>
@@ -173,7 +173,7 @@ const ModalForm = ({
               className={
                 inputData.type.trim() == "" && isErrorMessage
                   ? "border-red-500"
-                  : ""
+                  : "pl-2"
               }
               value={inputData.type}
             />
