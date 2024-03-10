@@ -25,6 +25,7 @@ const ModalForm = ({
 }) => {
   let modalRef = useRef();
   const [isErrorMessage, setIsErrorMessage] = useState(false);
+  const [isErrorMessageType, setIsErrorMessageType] = useState(false);
 
   useEffect(() => {
     if (!isUpdateData) {
@@ -58,11 +59,13 @@ const ModalForm = ({
 
     if (!isFormValid) {
       setIsErrorMessage(true);
+      setIsErrorMessageType(false);
       return;
     }
 
     if (!typeArray.find((inputType) => inputType === inputData["type"])) {
-      setIsErrorMessage(true);
+      setIsErrorMessageType(true);
+      setIsErrorMessage(false);
       return;
     }
 
@@ -121,6 +124,12 @@ const ModalForm = ({
         {isErrorMessage && (
           <b className="text-sm text-[10px] text-red-500">
             Tüm alanlar dolu ve boş karakter içermemelidir.
+          </b>
+        )}
+
+        {isErrorMessageType && (
+          <b className="text-sm text-[10px] text-red-500">
+            Girmiş olduğunuz type uygun bit type değildir.
           </b>
         )}
 
@@ -186,7 +195,8 @@ const ModalForm = ({
               onChange={handleChange("type")}
               list="inputType"
               className={
-                inputData.type.trim() == "" && isErrorMessage
+                (isErrorMessage && inputData.type.trim() === "") ||
+                (isErrorMessageType && inputData.type.trim() !== "")
                   ? "border-red-500 pl-2"
                   : "pl-2"
               }
