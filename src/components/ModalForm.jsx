@@ -11,6 +11,8 @@ const defaultInputData = {
   type: "",
 };
 
+const typeArray = ["text", "password", "email"];
+
 const ModalForm = ({
   isModalShow,
   setIsModalShow,
@@ -55,6 +57,11 @@ const ModalForm = ({
     );
 
     if (!isFormValid) {
+      setIsErrorMessage(true);
+      return;
+    }
+
+    if (!typeArray.find((inputType) => inputType === inputData["type"])) {
       setIsErrorMessage(true);
       return;
     }
@@ -186,9 +193,9 @@ const ModalForm = ({
               value={inputData.type}
             />
             <datalist id="inputType">
-              <option>text</option>
-              <option>password</option>
-              <option>email</option>
+              {typeArray.map((type) => (
+                <option key={type}>{type}</option>
+              ))}
             </datalist>
           </div>
 
