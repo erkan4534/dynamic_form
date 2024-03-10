@@ -48,13 +48,13 @@ const FormInput = () => {
       inputDataArray.map((input) => input.value)
     ).every((value) => value && value.trim() !== "");
 
+    setIsSuccessMessage(false);
     if (!isFormValid) {
       setIsErrorMessage(true);
+
       return;
     }
-
     setIsInputModalShow(true);
-    setIsSuccessMessage(false);
   }
 
   return (
