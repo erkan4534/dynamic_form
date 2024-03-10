@@ -29,6 +29,7 @@ const FormInput = () => {
   function openForm() {
     setIsModalShow(true);
     setIsErrorMessage(false);
+    setInputData(defaultInputData);
   }
 
   function clearForm() {
