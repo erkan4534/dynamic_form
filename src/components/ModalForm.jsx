@@ -52,7 +52,7 @@ const ModalForm = ({
   function modalFormSubmit(e) {
     e.preventDefault();
 
-    const { id, ...inputDataWithoutId } = inputData;
+    const { id, value, ...inputDataWithoutId } = inputData;
 
     const isFormValid = Object.values(inputDataWithoutId).every(
       (value) => value.trim() !== ""
