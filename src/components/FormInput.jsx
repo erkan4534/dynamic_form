@@ -31,6 +31,17 @@ const FormInput = () => {
     setIsErrorMessage(false);
   }
 
+  function clearForm() {
+    setIsErrorMessage(false);
+
+    setInputDataArray(
+      inputDataArray.map((input) => ({
+        ...input,
+        value: "",
+      }))
+    );
+  }
+
   function saveForm() {
     const isFormValid = Object.values(
       inputDataArray.map((input) => input.value)
@@ -81,6 +92,14 @@ const FormInput = () => {
             className="btn-submit bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-12"
           >
             Save
+          </button>
+
+          <button
+            onClick={clearForm}
+            type="button"
+            className="btn_add bg-[#365DC0] hover:bg-blue-700 text-white font-bold py-1 px-2 rounded w-12"
+          >
+            Clear
           </button>
           <button
             onClick={openForm}
