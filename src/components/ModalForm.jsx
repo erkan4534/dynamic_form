@@ -46,6 +46,7 @@ const ModalForm = ({
   function closeModal() {
     setIsModalShow(false);
     setIsErrorMessage(false);
+    setIsErrorMessageType(false);
   }
 
   function modalFormSubmit(e) {
