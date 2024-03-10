@@ -51,7 +51,6 @@ const FormInput = () => {
     setIsSuccessMessage(false);
     if (!isFormValid) {
       setIsErrorMessage(true);
-
       return;
     }
     setIsInputModalShow(true);
