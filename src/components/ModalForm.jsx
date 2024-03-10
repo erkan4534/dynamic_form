@@ -123,13 +123,13 @@ const ModalForm = ({
         </div>
 
         {isErrorMessage && (
-          <b className="text-sm text-[10px] text-red-500">
+          <b className="text-[10px] text-red-500">
             Tüm alanlar dolu ve boş karakter içermemelidir.
           </b>
         )}
 
         {isErrorMessageType && (
-          <b className="text-sm text-[10px] text-red-500">
+          <b className="text-[10px] text-red-500">
             Girmiş olduğunuz type uygun bit type değildir.
           </b>
         )}
